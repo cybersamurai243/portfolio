@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSamurai | Infrastructure & Automation 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #020205;
+            --card-bg: rgba(15, 15, 20, 0.7);
+            --accent: #00f2fe;
+            --text-main: #ffffff;
+            --text-dim: #a0a0a0;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Space Grotesk', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #0a0a1a 0%, #020205 100%);
+        }
+
+        header {
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            background: linear-gradient(180deg, #fff 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+            filter: drop-shadow(0 0 20px rgba(0, 242, 254, 0.3));
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin: 40px 0;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        .services-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+            padding-bottom: 100px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 242, 254, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-10px);
+            background: rgba(20, 20, 30, 0.9);
+            box-shadow: 0 10px 30px rgba(0, 242, 254, 0.05);
+        }
+
+        .service-card h3 {
+            color: var(--accent);
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .service-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .service-list li {
+            color: var(--text-dim);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .service-list li::before {
+            content: "▹";
+            color: var(--accent);
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        .btn-container {
+            text-align: center;
+            padding: 60px 20px 120px;
+        }
+
+        .btn {
+            position: relative;
+            background: rgba(0, 242, 254, 0.05);
+            color: var(--accent);
+            padding: 20px 55px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            display: inline-block;
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 242, 254, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover {
+            color: #fff;
+            border-color: var(--accent);
+            letter-spacing: 4px;
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.4), inset 0 0 10px rgba(0, 242, 254, 0.2);
+            transform: translateY(-3px);
+            background: rgba(0, 242, 254, 0.1);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #444;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+    <header>
+        <div style="color: var(--accent); letter-spacing: 10px; margin-bottom: 15px; font-weight: 300;">ESTABLISHED 2024
+            • ACTIVE 2026</div>
+        <h1 class="hero-title">CyberSamurai</h1>
+        <p style="color: var(--text-dim); font-size: 1.3rem; max-width: 700px; margin-top: 25px;">
+            Professional Engineering & Infrastructure Automation.
+        </p>
+    </header>
+
+    <h2 class="section-title">Full Service Stack</h2>
+
+    <div class="services-container">
+        <div class="service-card">
+            <h3>Intelligent Bots</h3>
+            <ul class="service-list">
+                <li>Automated Sales & Support Bots</li>
+                <li>Payment Gateways Integration</li>
+                <li>CRM & Database Syncing</li>
+                <li>Real-time Notification Tools</li>
+            </ul>
+        </div>
+        <div class="service-card">
+            <h3>DevOps & Cloud</h3>
+            <ul class="service-list">
+                <li>Linux Server Architecture</li>
+                <li>Docker Containerization</li>
+                <li>CI/CD Pipeline Setup</li>
+                <li>Private Mesh Networks</li>
+            </ul>
+        </div>
+        <div class="service-card">
+            <h3>Cybersecurity</h3>
+            <ul class="service-list">
+                <li>Infrastructure Security Audits</li>
+                <li>System Hardening (Arch/Debian)</li>
+                <li>DDoS Mitigation Strategies</li>
+                <li>Secure SSH Protocol Setup</li>
+            </ul>
+        </div>
+        <div class="service-card">
+            <h3>Automation</h3>
+            <ul class="service-list">
+                <li>Web Scraping & Data Mining</li>
+                <li>Business Process Automation</li>
+                <li>Database Architecture</li>
+                <li>Python & Bash Tooling</li>
+            </ul>
+        </div>
+        <div class="service-card">
+            <h3>Game Infrastructure</h3>
+            <ul class="service-list">
+                <li>Tuned Dedicated Hosting</li>
+                <li>Disaster Recovery & Backups</li>
+                <li>Low-Latency Optimization</li>
+                <li>Cluster Environment Setup</li>
+            </ul>
+        </div>
+        <div class="service-card">
+            <h3>Web Assets</h3>
+            <ul class="service-list">
+                <li>High-Speed Web Applications</li>
+                <li>Technical SEO Architecture</li>
+                <li>Brand Landing Pages</li>
+                <li>Full-cycle Maintenance</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <a href="https://t.me/offthemetter243" target="_blank" class="btn">Order Project</a>
+    </div>
+
+    <footer>
+        &copy; <span id="current-year"></span> CYBERSAMURAI SYSTEMS. OPERATED BY @offthemetter243
+    </footer>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        function init() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles = [];
+            for (let i = 0; i < 95; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.7,
+                    vy: (Math.random() - 0.5) * 0.7,
+                    size: Math.random() * 2 + 1
+                });
+            }
+        }
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach((p, i) => {
+                p.x += p.vx; p.y += p.vy;
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 242, 254, 0.4)';
+                ctx.fill();
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                    if (dist < 170) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.strokeStyle = `rgba(0, 242, 254, ${0.18 - dist / 900})`;
+                        ctx.lineWidth = 0.6;
+                        ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(draw);
+        }
+        window.addEventListener('resize', init);
+        init(); draw();
+    </script>
+</body>
+
+</html>
