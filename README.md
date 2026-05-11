@@ -30,7 +30,7 @@ Professional Python-based solutions for business automation, e-commerce, and gam
 * **Performance:** PC hardware optimization, undervolting, and high-FPS stability (240Hz+ environments).
 
 ## 🌍 Connect with me
-[![Telegram](https://img.shields.io/badge/Telegram-Contact-blue?style=flat-square&logo=telegram)](https://t.me/offthemetter243)
+[![Telegram](https://img.shields.io/badge/Telegram-Contact-blue?style=flat-square&logo=telegram)https://t.me/offthemetter243
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat-square&logo=linkedin)](ТВОЄ_ПОСИЛАННЯ_НА_LINKEDIN)
 
 ---
